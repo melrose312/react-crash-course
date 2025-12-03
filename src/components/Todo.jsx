@@ -7,7 +7,7 @@ function Todo ({title}) {
     return (
         <div className ="todo">
       <p>{ title }</p>
-      <button onClick={deleteToDo}>Delete</button>
+      <button onClick={deleteToDo()}>Delete</button>
     </div>
     );
 }

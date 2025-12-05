@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import User from "../components/User.jsx"
+import User from "../components/User.jsx";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -11,29 +11,25 @@ function Home() {
       "https://jsonplaceholder.typicode.com/users"
     );
     setUsers(data);
-    console.log(data)
+    console.log(data);
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchUsers();
-    }, 500);
+    fetchUsers();
   }, []);
-
-  const pixels = "3px";
 
   return (
     <div>
       {users.map((user) => (
-        <Link to={`/${user.id}`}>
-        <User 
-         key={user.id}
-         id={user.id} 
-         name={user.name} 
-         email={user.email} 
-         username={user.username} 
-         />
-         </Link>
+        <Link to={`/users/${user.id}`} key={user.id}>
+          <User
+            key={user.id}
+            id={user.id}
+            name={user.name}
+            email={user.email}
+            username={user.username}
+          />
+        </Link>
       ))}
     </div>
   );
